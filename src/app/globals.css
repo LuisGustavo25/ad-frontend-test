@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Area';
+    src: url('/public/fonts/Area.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('/public/fonts/Archivo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Area', sans-serif;
+}
