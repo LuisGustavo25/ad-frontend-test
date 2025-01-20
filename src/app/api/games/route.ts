@@ -1,11 +1,11 @@
-import { allGames, availableFilters, delay } from "@/utils/endpoint";
+import { allGames, availableFilters, delay } from '@/utils/endpoint';
 
 const ITEMS_PER_PAGE = 12;
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const genre = searchParams.get("genre");
-  let page = parseInt(searchParams.get("page") ?? "1");
+  const genre = searchParams.get('genre');
+  let page = parseInt(searchParams.get('page') ?? '1');
 
   let games = allGames;
 

@@ -2,3 +2,8 @@
 
 export { Header } from './header/Header';
 export { Footer } from './footer/Footer';
+
+export { ProductCard } from './ProductCard/ProductCard';
+export { GenreFilter } from './GenreFilter/GenreFilter';
+
+export { Loader } from './Loader/Loader'
