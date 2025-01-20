@@ -15,7 +15,9 @@ const config: Config = {
       },
       colors: {
         "gray-header": "#EEEEEE",
+        "gray-light": "#EFEDF3",
         "gray-medium": "#8F8F8F",
+        "gray-medium-darker": "#737373",
         "gray-dark": "#3B3B3B",
         "gray-light-darker": "#585660",
         "gray-footer": "#404040",
