@@ -21,7 +21,7 @@ export default function Home() {
     // Cart State
     const [cart, setCart] = useState<Game[]>([]);
     //Params constants
-    const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null); // Para asegurarnos de que el código solo se ejecute en el cliente.
+    const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null);
 
     // Check local storage for the cart on initial load
     useEffect(() => {
