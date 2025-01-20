@@ -10,10 +10,12 @@ interface ProductCardProps {
     image: string;
     genre: string;
     isNew: boolean;
+    isInCart: boolean;
+    onCartAction: () => void;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = (
-    { name, price, image, genre, isNew }
+    { name, price, image, genre, isNew, isInCart, onCartAction }
 ) => {
     return (
         <div className='w-[380px] h-auto max-h-[456px] px-8 py-8 border border-[#8F8F8F] rounded-2xl'>
@@ -51,11 +53,12 @@ export const ProductCard: React.FC<ProductCardProps> = (
                 {/* Add to Cart Button */}
                 <div className='flex w-full justify-center mt-4'>
                     <button
+                        onClick={onCartAction}
                         className='font-archivo w-full text-16 font-bold tracking-[0.5px]
                         text-gray-dark border border-[#3B3B3B] rounded-2xl px-4 py-2
                         transition-all hover:bg-[#3B3B3B] hover:text-white'
                     >
-                        ADD TO CART
+                        {isInCart ? 'REMOVE' : 'ADD TO CART'}
                     </button>
                 </div>
             </div>

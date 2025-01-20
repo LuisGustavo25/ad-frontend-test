@@ -14,10 +14,28 @@ export interface Game {
 }
 
 export default function Home() {
-    //State constants
+    // List State
     const [games, setGames] = useState<Game[]>([]);
+    // Loading State
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    // Cart State
+    const [cart, setCart] = useState<Game[]>([]);
+    //Params constants
     const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null); // Para asegurarnos de que el código solo se ejecute en el cliente.
+
+    // Check local storage for the cart on initial load
+    useEffect(() => {
+        const storedCart = localStorage.getItem('cart');
+        if(storedCart){
+            setCart(JSON.parse(storedCart));
+        }
+    }, []);
+
+    // Function to update the cart in local storage
+    const updateCartInLocalStorage = (newCart: Game[]) => {
+        setCart(newCart);
+        localStorage.setItem('cart', JSON.stringify(newCart));
+    };
 
     useEffect(() => {
         // Check if it's running in the client side
@@ -51,6 +69,16 @@ export default function Home() {
         fetchGames().then(r=>console.log('data: ', r));
     }, [genre, page]);
 
+    // Handle adding/removing games from the cart
+    const handleCartAction = (game: Game) => {
+        const updatedCart = cart.some(cartItem => cartItem.id === game.id)
+            ? cart.filter(cartItem => cartItem.id !== game.id) // Remove game if already in cart
+            : [...cart, game]; // Add game to the cart if not already added
+
+        // Update the local storage
+        updateCartInLocalStorage(updatedCart);
+    };
+
   return (
       <Suspense fallback={
           <div className='flex justify-center align-middle'>
@@ -79,6 +107,10 @@ export default function Home() {
                                   image={game.image}
                                   genre={game.genre}
                                   isNew={game.isNew}
+                                  // Check if the game is in the cart
+                                  isInCart={cart.some(cartItem => cartItem.id === game.id)}
+                                  // Handle add/remove from cart
+                                  onCartAction={() => handleCartAction(game)}
                               />
                           ))}
                       </div>
