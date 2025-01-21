@@ -39,7 +39,7 @@ export default function Home() {
 
     useEffect(() => {
         // Check if it's running in the client side
-        if (typeof window !== "undefined") {
+        if (typeof window !== 'undefined') {
             setSearchParams(new URLSearchParams(window.location.search));
         }
     }, []);

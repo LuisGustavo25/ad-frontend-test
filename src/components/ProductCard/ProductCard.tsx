@@ -40,7 +40,7 @@ export const ProductCard: React.FC<ProductCardProps> = (
                 </div>
 
                 {/* Product Genre */}
-                <div className='font-archivo text-16 font-bold text-left uppercase text-gray-medium-darker mt-4 decoration-none'>
+                <div className='font-archivo text-16 font-bold text-left uppercase text-gray-medium-darker mt-4'>
                     <span>{genre}</span>
                 </div>
 

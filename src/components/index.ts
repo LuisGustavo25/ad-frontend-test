@@ -5,5 +5,7 @@ export { Footer } from './footer/Footer';
 
 export { ProductCard } from './ProductCard/ProductCard';
 export { GenreFilter } from './GenreFilter/GenreFilter';
+export { ShoppingCard } from './ShoppingCartCard/ShoppingCard';
+export { OrderSummary } from './OrderSummary/OrderSummary';
 
 export { Loader } from './Loader/Loader'
