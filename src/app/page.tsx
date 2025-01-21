@@ -39,7 +39,7 @@ export default function Home() {
 
     useEffect(() => {
         // Check if it's running in the client side
-        if (typeof window !== "undefined") {
+        if (typeof window !== 'undefined') {
             setSearchParams(new URLSearchParams(window.location.search));
         }
     }, []);
@@ -85,8 +85,7 @@ export default function Home() {
             <Loader/>
           </div>
       }>
-          <main className='w-full h-full'>
-              <Header />
+          <div className='w-full h-full'>
               <div className='py-8 h-full'>
                   {/* Filter/Selector for genres */}
                   <GenreFilter selectedGenre={genre} />
@@ -116,8 +115,7 @@ export default function Home() {
                       </div>
                   )}
               </div>
-              <Footer />
-          </main>
+          </div>
       </Suspense>
   );
 }
