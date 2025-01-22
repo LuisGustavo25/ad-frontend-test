@@ -6,12 +6,19 @@ global.fetch = jest.fn();
 
 describe('GameService', () => {
 
+    beforeAll(() => {
+        process.env.NEXT_PUBLIC_API_BASE_URL = 'http://localhost:3001/api';
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks(); // Clear fetch mocks after each test
+    });
+
     //Test for 200 API response
     it('should fetch games correctly from the API', async () => {
-        // Mock the API response
         const mockData = {
             games: [{
-                id: '1', name: 'Test Game', genre: 'Action', image: '', description: '', price: 0, isNew: false
+                id: '1', name: 'Test Game', genre: 'Action', image: '', description: '', price: 0, isNew: false,
             }],
             availableFilters: ['Action', 'Adventure'],
             totalPages: 1,
@@ -23,16 +30,14 @@ describe('GameService', () => {
             json: async () => mockData,
         });
 
-        // Call the service to fetch games
         const response = await GameService.fetchGames('action', '1');
 
-        expect(response).toEqual(mockData); // Ensure the response matches the mock data
-        expect(fetch).toHaveBeenCalledWith('http://localhost:3000/api/games?genre=action&page=1');
+        expect(response).toEqual(mockData);
+        expect(fetch).toHaveBeenCalledWith(`${process.env.NEXT_PUBLIC_API_BASE_URL}/games?genre=action&page=1`);
     });
 
     //Test for error at API response
     it('should throw an error if the API response is not OK', async () => {
-        // Simulate an error response
         (fetch as jest.Mock).mockResolvedValueOnce({
             ok: false,
             statusText: 'Not Found',
