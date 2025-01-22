@@ -1,7 +1,11 @@
 //Game Services server side:
 import {Game} from '@/app/page';
 
-const API_BASE_URL:string = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
+const API_BASE_URL: string = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+
+if (!API_BASE_URL) {
+    throw new Error('API_BASE_URL is not defined. Please set the environment variable.');
+}
 
 export const GameService = {
     async fetchGames(genre:string|undefined, page:string|undefined ): Promise<{
