@@ -27,5 +27,15 @@ export async function GET(request: Request) {
   const totalPages = Math.ceil(allGames.length / ITEMS_PER_PAGE);
   const currentPage = page;
 
-  return Response.json({ games, availableFilters, totalPages, currentPage });
+  //Config CORS headers
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+  };
+
+  // Response with the data & Cors Headers
+  return new Response(
+      JSON.stringify({ games, availableFilters, totalPages, currentPage }),
+      { status: 200, headers }
+  );
 }
