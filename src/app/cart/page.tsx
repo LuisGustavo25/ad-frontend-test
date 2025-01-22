@@ -1,7 +1,7 @@
 //Shopping-Cart Page, this show the User´s Cart
-"use client";
+'use client';
 import React, {useEffect, useState} from 'react';
-import {shoppingCartPageTemplate} from "@/app/cart/shoppingCartTemplate.render";
+import {shoppingCartPageTemplate} from '@/app/cart/shoppingCartTemplate.render';
 
 export interface Game {
     id: string;
