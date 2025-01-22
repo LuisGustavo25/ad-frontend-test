@@ -1,5 +1,5 @@
 //Catalog Page, this show all the items inside the catalog from the API (Server Client)
-import {Suspense} from "react";
+import {Suspense} from 'react';
 import {Products, GenreFilter, Loader} from '@/components';
 import {GameService} from '@/services';
 
