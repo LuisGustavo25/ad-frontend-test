@@ -5,10 +5,11 @@ import {ShopIcon} from '@/icons';
 
 export const Header: React.FC = () => {
     return (
-        <header className='flex items-center justify-between h-16 w-full px-8 bg-gray-header'>
+        <header className='sticky top-0 z-50 flex items-center justify-between h-16 w-full px-10 bg-gray-header'>
             {/* Logo */}
             <Link href='/'>
-                <h1 className='font-area text-gray-light-darker text-2xl font-bold leading-6 tracking-wider'>
+                <h1 className='font-area text-gray-light-darker text-[24px] md:text-[24px] sm:text-[24px]
+                text font-bold leading-6 tracking-wider'>
                     GamerShop
                 </h1>
             </Link>
