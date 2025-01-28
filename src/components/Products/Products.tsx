@@ -88,7 +88,7 @@ export function Products({ initialGames, initialPage, totalPages }: ProductsProp
                 </div>
             ) : (
                 <div className='flex flex-col min-h-screen max-w-[1280px] mr-auto ml-auto'>
-                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 place-items-center'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-4 place-items-center'>
                         {/* Map the games in the Cards */}
                         {games.length > 0 ? (
                             games.map((game) => (

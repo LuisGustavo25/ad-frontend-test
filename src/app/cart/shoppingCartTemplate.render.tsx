@@ -12,8 +12,8 @@ interface ShoppingCartPageTemplateProps {
 export const shoppingCartPageTemplate  =
     ({ ShoppingCart, onRemove }: ShoppingCartPageTemplateProps) => {
     return (
-    <div className={'w-full flex flex-col justify-center'}>
-        <div className={'px-10 mb-6'}>
+    <div className={'min-h-screen max-w-[1280px] mr-auto ml-auto'}>
+        <div className={'px-2 lg:px-10 m mb-6'}>
             {/* Header option */}
             <Link href='/'>
             <div className={'flex gap-1 h-[72px] py-4 align-middle my-2'}>
@@ -32,8 +32,8 @@ export const shoppingCartPageTemplate  =
                         : `${ShoppingCart.length} item${ShoppingCart.length > 1 ? 's' : ''}`}
                 </span>
 
-                <div className={'flex flex-col sm:flex-row gap-6 justify-between'}>
-                    <div className={'flex flex-col justify-between w-full sm:w-auto'}>
+                <div className={'flex flex-col sm:flex-row gap-6 px-2 py-2 justify-between'}>
+                    <div className={'flex flex-col justify-between w-full gap-4'}>
                         {ShoppingCart.length > 0 ? (
                             /* Map the Shopping cart items */
                             ShoppingCart.map((game) => (

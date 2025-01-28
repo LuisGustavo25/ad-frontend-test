@@ -25,7 +25,7 @@ export const ProductCard: React.FC<ProductCardProps> = (
         onCartAction(); // Update the cart in the parent component
     };
   return (
-        <div className='w-[327px] h-[436px] max-h-[436px] px-8 py-8 border border-[#8F8F8F] rounded-2xl mt-4 mb-4 md:w-[380px]'>
+        <div className='w-full max-w-[380px] min-w-[300px] h-auto px-8 py-8 border border-[#8F8F8F] rounded-2xl mt-4 mb-4'>
             <div className='flex flex-col'>
                 {/* Product Image & IsNew label */}
                 <div className='w-full max-h-[240px] relative overflow-hidden'>
